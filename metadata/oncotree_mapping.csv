@@ -1,0 +1,36 @@
+order,cancer_group,subtype_regex,text_regex,oncotree_code,rule
+1,Medulloblastoma,"MB, Group3",anaplastic|large cell,AMBLNWSG3,Group 3 with anaplastic or large cell histology
+2,Medulloblastoma,"MB, Group4",anaplastic|large cell,AMBLNWSG4,Group 4 with anaplastic or large cell histology
+3,Medulloblastoma,"MB, SHH",anaplastic|large cell,AMBLSHH,SHH with anaplastic or large cell histology
+4,Medulloblastoma,"MB, SHH",extensive nodularity,MBENSHH,SHH with extensive nodularity
+5,Medulloblastoma,"MB, SHH",desmoplastic|nodular,DMBLSHH,SHH with desmoplastic/nodular histology
+6,Medulloblastoma,"MB, Group3",,MBLG3,Group 3
+7,Medulloblastoma,"MB, Group4",,MBLG4,Group 4
+8,Medulloblastoma,"MB, SHH",,MBLSHH,SHH
+9,Medulloblastoma,"MB, WNT",,MBLWNT,WNT
+10,Medulloblastoma,,anaplastic|large cell,AMBLNOS,Group not known; anaplastic or large cell histology
+11,Medulloblastoma,,,MBLNOS,Group not known
+12,Ependymoma,"EPN, MPE",,MPE,Myxopapillary by molecular subtype
+13,Ependymoma,,myxopapillary,MPE,Myxopapillary by pathology text
+14,Ependymoma,,subependymoma,SUBE,Subependymoma by pathology text
+15,Ependymoma,,anaplastic,APE,Anaplastic by pathology text (ONCOTREE has no molecular ependymoma groups)
+16,Ependymoma,,,EPM,Ependymoma
+17,Ganglioglioma,,anaplastic ganglioglioma,AGNG,Anaplastic ganglioglioma by pathology text
+18,Ganglioglioma,,,GNG,Ganglioglioma
+19,High-grade glioma,"HGG, IDH",,ASTR,IDH-mutant (grade not given)
+20,High-grade glioma,,anaplastic pleomorphic xanthoastrocytoma,APXA,Anaplastic PXA by pathology text
+21,High-grade glioma,,pleomorphic xanthoastrocytoma,PXA,PXA by pathology text
+22,High-grade glioma,"HGG, DMG|H3 K28",,DMG,H3 K27-altered diffuse midline glioma
+23,High-grade glioma,"HGG, H3 G35",,DHG,H3 G34-mutant
+24,High-grade glioma,"HGG, H3 wildtype",,DPHGG,H3-wildtype and IDH-wildtype
+25,High-grade glioma,,,HGGNOS,High-grade glioma not classified further
+26,Low-grade glioma,,pilomyxoid,PMA,Pilomyxoid by pathology text
+27,Low-grade glioma,,pleomorphic xanthoastrocytoma|^pxa,PXA,PXA by pathology text
+28,Low-grade glioma,,angiocentric,ANGL,Angiocentric glioma by pathology text
+29,Low-grade glioma,"LGG, MYB/MYBL1",,DASTR,MYB/MYBL1-altered diffuse astrocytoma
+30,Low-grade glioma,,pilocytic|pilocystic,PAST,Pilocytic astrocytoma by pathology text
+31,Low-grade glioma,"LGG, IDH",,ASTR,IDH-mutant (grade not given)
+32,Low-grade glioma,BRAF|MAPK|FGFR|RTK,diffuse|fibrillary,DLGGMAPK,Diffuse low-grade glioma with a MAPK-pathway alteration
+33,Low-grade glioma,,diffuse|fibrillary,PDIFLG,Pediatric-type diffuse low-grade glioma
+34,Low-grade glioma,,,LGGNOS,Low-grade glioma not classified further
+35,Adamantinomatous Craniopharyngioma,,,ACPG,Adamantinomatous craniopharyngioma

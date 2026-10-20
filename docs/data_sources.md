@@ -71,7 +71,7 @@ how to cite it. Raw files go in `data/rawdata/<source>/` and are never edited. N
 - **Name**: OncoTree cancer type classification, used to name tumor types and subtypes (levels 1 to 3)
 - **Version**: `oncotree_2025_10_03` (the latest stable version on 2026-10-20)
 - **URL**: https://oncotree.mskcc.org (API: https://oncotree.mskcc.org/api/tumorTypes?version=oncotree_2025_10_03)
-- **Access Method**: API, saved as `data/rawdata/oncotree_2025_10_03/tumor_types.json`
+- **Access Method**: the BHK lab R package [AnnotationGx](https://github.com/bhklab/AnnotationGx) (`getOncotreeTumorTypes()`, version 0.99.3, GitHub commit `adb3838`, the last that runs on R 4.5), saved as `data/rawdata/oncotree_2025_10_03/tumor_types_annotationgx.csv`; the API JSON is kept next to it
 - **Access Date**: 2026-10-20
 - **Citation**: Kundra R, ... Schultz N. OncoTree: A Cancer Classification System for Precision Oncology.
   *JCO Clinical Cancer Informatics* (2021). [doi:10.1200/CCI.20.00108](https://doi.org/10.1200/CCI.20.00108)
@@ -167,7 +167,7 @@ nothing is imputed. A `;` inside a value is written as ` | ` so the file stays r
 | methyl, methyl_info | string | Methylation data type and processing | N/A | epic; processing NA until decided |
 | mirna, mirna_info | string | miRNA data type and processing | N/A | htg; raw counts |
 | race, ethnicity | string | As reported in v15 ("Reported Unknown", "Not Available" kept as written) | N/A | |
-| oncotree_code, oncotree_level1, oncotree_level2, oncotree_level3 | string | ONCOTREE level-3 code (MPE for myxopapillary ependymoma, else the type code) and the names at levels 1 (tissue), 2 (family) and 3 (type), as Farnoosh asked on 13 Oct | N/A | e.g. MBL; CNS/Brain; Embryonal Tumor; Medulloblastoma |
+| oncotree_code, oncotree_name, oncotree_level, oncotree_level1 ... oncotree_level5 | string | Most detailed ONCOTREE code the data supports (Farnoosh's rule), from the rules in `metadata/oncotree_mapping.csv`, with its name, level, and the name at each level (1 = tissue, 2 = family, 3 = type, 4-5 = subtypes; NA below the code's level). A patient whose samples map to different codes keeps all, joined with ` / ` | N/A | e.g. MBLG4, Medulloblastoma, Group 4, 5 |
 | sex_newest_release | string | Sex in the newest CBTN release, as a check | N/A | F, M, NA |
 | n_mirna_samples | integer | miRNA samples of the patient in the six types | N/A | 1 to 3 |
 | (original columns) | | Every v15 `histologies.tsv` column of the patient's first miRNA tumor, except those turned into key columns | | |
