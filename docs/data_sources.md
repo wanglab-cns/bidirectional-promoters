@@ -156,14 +156,17 @@ nothing is imputed. A `;` inside a value is written as ` | ` so the file stays r
 | response.other.info, recist, response | string | Treatment response | N/A | NA (no response data) |
 | drug_type | string | Treatment type | N/A | NA |
 | dna | string | DNA data type | N/A | wgs, NA |
-| rna | string | RNA data type | N/A | tpm, NA |
+| rna | string | RNA data type (as in the lab's 2026 ICB repos) | N/A | rnaseq, NA |
 | t.pfs, pfs | numeric | Progression-free survival | months; 0/1 | NA (CBTN reports event-free survival, kept in the original columns `EFS_days`, `EFS_event_type`) |
 | t.os | numeric | Overall survival time (`OS_days` / 30.5) | months | ≥ 0 |
 | os | integer | Overall survival event | N/A | 1 = deceased, 0 = living |
 | survival_unit | string | Unit of survival time | N/A | month |
 | survival_type | string | Survival endpoints available | N/A | OS |
 | tumor_type | string | CBTN tumor type(s) of the patient's miRNA samples (`cancer_group`) | N/A | the six types; one patient has two, joined with ` \| ` |
-| methyl, mirna | string | Methylation and miRNA data types | N/A | epic / htg, NA |
+| rna_info, dna_info | string | What the RNA and DNA data are | N/A | RSEM TPM and expected counts; consensus somatic MAF, CNVkit segments; NA |
+| methyl, methyl_info | string | Methylation data type and processing | N/A | epic; processing NA until decided |
+| mirna, mirna_info | string | miRNA data type and processing | N/A | htg; raw counts |
+| race, ethnicity | string | As reported in v15 ("Reported Unknown", "Not Available" kept as written) | N/A | |
 | oncotree_code, oncotree_name | string | Most specific ONCOTREE type (MB group or myxopapillary ependymoma when the subtype names one) | N/A | e.g. MBLG4, LGGNOS |
 | sex_newest_release | string | Sex in the newest CBTN release, as a check | N/A | F, M, NA |
 | n_mirna_samples | integer | miRNA samples of the patient in the six types | N/A | 1 to 3 |
