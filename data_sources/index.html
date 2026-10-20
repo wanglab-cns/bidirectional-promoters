@@ -285,7 +285,8 @@ how to cite it. Raw files go in <code>data/rawdata/&lt;source&gt;/</code> and ar
 <h2 id="3-data-dictionary">3. Data Dictionary</h2>
 <h3 id="curated-clinical-table-clincsv">Curated clinical table (<code>CLIN.csv</code>)</h3>
 <p>One row per patient, <code>;</code>-separated, written as in the lab code. The lab's key columns come first, in the lab's order,
-then our extra columns, then every original v15 column of the patient's first miRNA tumor. Missing values stay <code>NA</code>;
+then the columns we use (Farnoosh: what we care about on the left), then every other original v15 column of the
+patient's first miRNA tumor. Missing values stay <code>NA</code>;
 nothing is imputed. A <code>;</code> inside a value is written as <code>|</code> so the file stays readable. Rules: <code>devnotes.md</code>
 (clinical curation rules, 13 Oct).</p>
 <table>
@@ -417,6 +418,13 @@ nothing is imputed. A <code>;</code> inside a value is written as <code>|</code>
 <td>Survival endpoints available</td>
 <td>N/A</td>
 <td>OS</td>
+</tr>
+<tr>
+<td>core_mirna, same_sample_status</td>
+<td>logical, string</td>
+<td>Whether WGS, RNA-seq, methylation and miRNA come from the same tumor sample (NB01)</td>
+<td>N/A</td>
+<td>TRUE/FALSE; 4 statuses</td>
 </tr>
 <tr>
 <td>tumor_type</td>
