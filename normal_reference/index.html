@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Amirfaham Fallahpour" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Normal brain references for the CBTN tumor comparison - Bidirectional Promoters in Pediatric Brain Tumors</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Normal brain references for the CBTN tumor comparison";
+        var mkdocs_page_input_path = "normal_reference.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Bidirectional Promoters in Pediatric Brain Tumors
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../data_sources/">Data Sources</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../devnotes/">Developer Notes</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Bidirectional Promoters in Pediatric Brain Tumors</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Normal brain references for the CBTN tumor comparison</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/wanglab-cns/bidirectional-promoters/edit/master/docs/normal_reference.md">Edit on bidirectional-promoters</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="normal-brain-references-for-the-cbtn-tumor-comparison">Normal brain references for the CBTN tumor comparison</h1>
+<p>Checked 20 Oct 2026. I took every count, age and platform below from a GEO record, portal file or paper I opened. For GEO I parsed the per-sample metadata myself. Anything I could not confirm says "unverified". Every paper below was checked in PubMed for retractions and none are retracted. The one exception is Luo 2022 (Nature, PMID 36450980), which was retracted in 2025 and is left out.</p>
+<h2 id="recommendation">Recommendation</h2>
+<ol>
+<li><strong>Methylation.</strong> No single dataset matches our platform, region and age, so build a pooled normal.</li>
+<li>Process the raw IDATs with the same minfi pipeline we use for the tumors.</li>
+<li>Keep only probes shared by 450K and EPIC v1.</li>
+<li>Capper's controls (GSE90496) give the regions we can't get elsewhere: pons, hypothalamus and pituitary.</li>
+<li>The pediatric sets give the age match:<ul>
+<li>Cerebellum: GSE278285 (24 children, 450K) and GSE299377 (EPIC).</li>
+<li>Mixed regions: GSE215240 (13 pediatric EPIC normals, one each for pons, hypothalamus and pituitary).</li>
+<li>Cortex: GSE74193 (76 children), GSE289191 (EPIC, 12 children) and PsychENCODE (450K, 13 children, 16 regions incl. temporal cortex and cerebellum).</li>
+</ul>
+</li>
+<li><strong>CBTN's own 23 EPIC normals.</strong> Use them as a batch check, not as the main normal.</li>
+<li>21 of the 23 donors are tumor patients, mostly DMG.</li>
+<li>No sample has a region label.</li>
+<li>One sample looks like SHH tumor.</li>
+<li><strong>Heidelberg v12.8 controls (GHGA, needs a data transfer agreement).</strong> Apply only if optic-pathway LGG matters. It is the only source of normal optic nerve (CTRL_OPTIC).</li>
+<li><strong>RNA.</strong> Use GTEx v10 as the main normal.</li>
+<li>It uses GENCODE v39, the same as our tumors.</li>
+<li>It has cerebellum, hypothalamus, pituitary, spinal cord and cortex, all adult.</li>
+<li>For age-matched layers add three sources:<ul>
+<li>PsychENCODE counts.</li>
+<li>E-MTAB-6814 (open FASTQ, so it can be rerun with RSEM/v39).</li>
+<li>GSE244124, the only pediatric pons and pituitary.</li>
+</ul>
+</li>
+<li>Put library type (poly-A vs rRNA-depleted) in the model.</li>
+<li><strong>miRNA.</strong> No HTG EdgeSeq normal brain exists in any public repository.</li>
+<li>Fallback: GTEx v10 small RNA-seq (adult, includes pituitary and hypothalamus) plus PsychENCODE small RNA-seq (pediatric, 16 regions).</li>
+<li>Use them for direction and rank only, not fold change.</li>
+<li>The real fix is to ask CBTN/D3b to run HTG on a few of the normal-brain RNAs they already hold.</li>
+</ol>
+<h2 id="comparison-table-methylation">Comparison table: methylation</h2>
+<table>
+<thead>
+<tr>
+<th>Dataset (first author, year)</th>
+<th>Accession</th>
+<th>Platform</th>
+<th>Normal samples (n)</th>
+<th>Brain regions (n per region)</th>
+<th>Age range / pediatric n</th>
+<th>Raw data?</th>
+<th>Access</th>
+<th>Best for</th>
+<th>Caveats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CBTN/PBTA normals (OpenPedCan v15, 2025)</td>
+<td>Kids First / OpenPedCan histologies v15</td>
+<td>EPIC v1</td>
+<td>23 solid tissue + 1 blood</td>
+<td>Not labelled. v12 classifier calls: CTRL_HEMI 6, CTRL_CBM 2, CTRL_CORPCAL 1, MB_SHH_2 1, no call 13</td>
+<td>infant to 30 y; 20 under 18, only 1 under 5 y</td>
+<td>IDATs held by CBTN (raw-data route unverified); betas open</td>
+<td>Kids First / CBTN</td>
+<td>Same-pipeline check; hemispheric HGG, ST-EPN</td>
+<td>21/23 donors are tumor patients (16 diffuse glioma, mostly DMG H3K27; 3 EPN; 1 GNT). One infant sample is called MB_SHH_2 by the classifier although that patient has EPN. Ask CBTN for regions.</td>
+</tr>
+<tr>
+<td>Capper 2018</td>
+<td>GSE90496</td>
+<td>450K</td>
+<td>72 normal-region (+24 inflammatory, 23 reactive)</td>
+<td>PONS 12, CEBM 8, HYPTHAL 9, ADENOPIT 9, HEMI 13, WM 9, PINEAL 12</td>
+<td>Ages not on GEO (unverified); Cotter 2025 says the cerebellar controls are adult</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>Pons, hypothalamus, pituitary, all regions</td>
+<td>PONS, HYPTHAL, ADENOPIT, PINEAL and WM are all FFPE. CEBM is 7 frozen + 1 FFPE; HEMI is 12 frozen + 1 FFPE.</td>
+</tr>
+<tr>
+<td>Sill 2025/2026 (v12.8 reference)</td>
+<td>GHGA GHGAS89861553411214</td>
+<td>450K + EPIC + EPICv2</td>
+<td>n per class in Table S1 (unverified)</td>
+<td>Classes: CTRL_ADENOPIT, CBM, CORPCAL, HEMI, HYPOTHAL, <strong>OPTIC</strong>, PIN, PONS, REACTIVE, BLOOD</td>
+<td>Unverified</td>
+<td>Raw, controlled</td>
+<td>DTA, non-commercial use</td>
+<td>Optic-pathway LGG (only optic control anywhere)</td>
+<td>Slow to access; likely overlaps Capper.</td>
+</tr>
+<tr>
+<td>Sturm 2023</td>
+<td>GSE215240</td>
+<td>EPIC</td>
+<td>13</td>
+<td>Hypothalamus 1, pituitary 1, pineal 1, pons 1, cerebellum+pons+medulla 1, cerebellum 1, 4th ventricle 1, temporal/parietal cortex 6</td>
+<td>2–14 y; all 13 pediatric</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>ACP, DMG, PF-EPN, GG (pediatric, same platform)</td>
+<td>FFPE surgical tissue from suspected-tumor cases, so it may be reactive or next to tumor. Only 1 sample per region.</td>
+</tr>
+<tr>
+<td>Cotter 2025</td>
+<td>GSE299377</td>
+<td>EPIC v1 (4) + EPIC v2 (6)</td>
+<td>6 donors, 10 arrays</td>
+<td>Cerebellar hemisphere cortex 6</td>
+<td>0 mo (×2, premature to 10 d), 4 mo, 5 y, 16 y, 17 y</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>MB, cerebellar PA, PF-EPN</td>
+<td>FFPE autopsy. Infant cerebellum looks like SHH-MB. Only donors 1–4 have EPIC v1.</td>
+</tr>
+<tr>
+<td>Anne 2022 (GEO 2025)</td>
+<td>GSE278285</td>
+<td>450K</td>
+<td>45 controls (+30 autism)</td>
+<td>Cerebellum 45</td>
+<td>0–56 y; <strong>24 under 18</strong> (1 under 1 y, 11 aged 1–4, 6 aged 5–9, 6 aged 10–17)</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>MB, cerebellar PA, PF-EPN</td>
+<td>Largest pediatric normal cerebellum set. Brain bank source not on GEO (unverified). Ages in whole years.</td>
+</tr>
+<tr>
+<td>Li 2018 (PsychENCODE/BrainSpan)</td>
+<td>development.psychencode.org; raw dbGaP phs000755</td>
+<td>450K</td>
+<td>269 samples, 21 donors</td>
+<td>16 regions: ITC 19, A1C 18, OFC 18, VFC 18, STC 17, AMY 17, STR 17, MD thalamus 17, HIP 16, CBC 15, other cortex</td>
+<td>4 mo–40 y; 13 donors under 18 (159 samples); 8 pediatric CBC</td>
+<td>Betas open (3.8 GB); IDATs controlled</td>
+<td>Open / dbGaP</td>
+<td>GG (temporal cortex), hemispheric HGG/LGG, thalamic HGG, MB</td>
+<td>Healthy donors. No pons, hypothalamus or pituitary.</td>
+</tr>
+<tr>
+<td>Jaffe 2016</td>
+<td>GSE74193</td>
+<td>450K</td>
+<td>339 control donors on GEO (paper says 335); 450 arrays</td>
+<td>DLPFC</td>
+<td>Prenatal (36) to 85 y; <strong>76 postnatal under 18</strong></td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>Hemispheric HGG, ST-EPN, GG (cortex proxy)</td>
+<td>Frontal cortex only. Use the bestQC flag.</td>
+</tr>
+<tr>
+<td>Franklin 2025</td>
+<td>GSE289191 (bulk), GSE289184 (SATB2± sorted)</td>
+<td>EPIC v1</td>
+<td>107 bulk (95 fetal + 12 child); 87 sorted</td>
+<td>Prefrontal cortex</td>
+<td>Fetal 6–33 pcw; children 0–8 y (n=12)</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>Young hemispheric tumors</td>
+<td>Frontal only; few children.</td>
+</tr>
+<tr>
+<td>Nishitani 2025</td>
+<td>GSE239518</td>
+<td>EPIC</td>
+<td>11 typically developing (+13 maltreated)</td>
+<td>Prefrontal cortex</td>
+<td>0–17.5 y; all pediatric</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>Hemispheric tumors</td>
+<td>Forensic autopsies. The paper analysed 7 controls.</td>
+</tr>
+<tr>
+<td>Hovestadt 2014</td>
+<td>GSE54880</td>
+<td>450K</td>
+<td>8</td>
+<td>Cerebellum: 4 fetal, 4 adult</td>
+<td>Fetal; adults 26–87 y; 0 children</td>
+<td><strong>No IDATs</strong> (beta + raw signal txt)</td>
+<td>Open</td>
+<td>MB backup</td>
+<td>No children.</td>
+</tr>
+<tr>
+<td>Smith 2022</td>
+<td>GSE209913</td>
+<td>EPIC</td>
+<td>14</td>
+<td>Fetal rhombic lip 7, EGL 7 (microdissected)</td>
+<td>14–21 pcw (paper)</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>MB Group 3/4 cell of origin</td>
+<td>Progenitor zones, not mature tissue.</td>
+</tr>
+<tr>
+<td>Kober 2018</td>
+<td>GSE115783</td>
+<td>450K</td>
+<td>6</td>
+<td>Whole pituitary (autopsy)</td>
+<td>Not on GEO</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>ACP</td>
+<td>Adult pituitary-adenoma study.</td>
+</tr>
+<tr>
+<td>Price 2016</td>
+<td>GSE69502</td>
+<td>450K</td>
+<td>9</td>
+<td>Spinal cord</td>
+<td>Fetal 14.5–20.4 wk</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>Spinal EPN (only option)</td>
+<td>Fetal only.</td>
+</tr>
+<tr>
+<td>Kobow 2020 / Jabari 2022</td>
+<td>GSE156374</td>
+<td>EPIC</td>
+<td>13 arrays (6 neocortex, 7 white matter)</td>
+<td>Cortex, WM</td>
+<td>Adult (mean ~30 y per papers)</td>
+<td>IDATs yes</td>
+<td>Open</td>
+<td>GG (published comparator)</td>
+<td>Adult FFPE autopsy.</td>
+</tr>
+<tr>
+<td>Loyfer 2023</td>
+<td>GSE186458; raw EGA EGAS00001006791</td>
+<td>WGBS (sorted cells)</td>
+<td>14 brain</td>
+<td>Cortex neurons 8, cerebellar neuron 1, neuron 1, oligodendrocytes 4</td>
+<td>19–65 y</td>
+<td>FASTQ controlled; processed open</td>
+<td>Open / EGA</td>
+<td>Cell-type deconvolution and markers</td>
+<td>Adult, sorted cells, sequencing data. Not a bulk normal.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="comparison-table-rna">Comparison table: RNA</h2>
+<table>
+<thead>
+<tr>
+<th>Dataset (first author, year)</th>
+<th>Accession</th>
+<th>Platform</th>
+<th>Normal samples (n)</th>
+<th>Brain regions (n per region)</th>
+<th>Age range / pediatric n</th>
+<th>Raw data?</th>
+<th>Access</th>
+<th>Best for</th>
+<th>Caveats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GTEx v10 (2024–25)</td>
+<td>gtexportal.org; gs://adult-gtex/bulk-gex/v10; raw dbGaP phs000424</td>
+<td>Poly-A, unstranded, 76-bp PE; <strong>GENCODE v39</strong>; RNA-SeQC gene counts + RSEM transcripts</td>
+<td>3,234 brain (13 regions) + 313 pituitary</td>
+<td>Cerebellum 266, cerebellar hemisphere 277, hypothalamus 257, pituitary 313, spinal cord C1 204, cortex 270, BA9 269, hippocampus 255, + 6 more</td>
+<td>20–79 y; 0 pediatric</td>
+<td>FASTQ controlled</td>
+<td>Counts/TPM open</td>
+<td>All six (adult anchor)</td>
+<td>Adult postmortem, poly-A only, no pons.</td>
+</tr>
+<tr>
+<td>OpenPedCan v15 (Geng 2025)</td>
+<td>AWS open-targets v15 / CAVATICA</td>
+<td>GTEx v8 + PBTA, harmonized</td>
+<td>3 PBTA normal brain + GTEx v8</td>
+<td>PBTA normals have no region</td>
+<td>PBTA: all under 14 y</td>
+<td>Via Kids First</td>
+<td>Open</td>
+<td>Drop-in with our files</td>
+<td>GTEx v8 here is not realigned.</td>
+</tr>
+<tr>
+<td>Li 2018 (PsychENCODE/BrainSpan)</td>
+<td>development.psychencode.org; raw dbGaP phs000755</td>
+<td>Poly-A, non-stranded, 76-bp SE; GENCODE v21</td>
+<td>607 samples, 41 brains</td>
+<td>16 regions; CBC 33</td>
+<td>8 pcw–40 y; 15 postnatal donors under 18 (222 samples); 14 pediatric CBC</td>
+<td>Raw controlled</td>
+<td>Counts open</td>
+<td>MB, PF tumors, GG, hemispheric</td>
+<td>No pons, hypothalamus or pituitary. Same donors as BrainSpan, so don't combine the two.</td>
+</tr>
+<tr>
+<td>Cardoso-Moreira 2019</td>
+<td>E-MTAB-6814</td>
+<td>TruSeq stranded mRNA, 100-nt SE</td>
+<td>59 cerebellum/hindbrain + 55 brain</td>
+<td>Cerebellum 59; cortex (DLPFC postnatal) 55</td>
+<td>Cerebellum: 33 prenatal, <strong>17 under 18</strong>, 9 adult; cortex 14 under 18</td>
+<td>FASTQ open</td>
+<td>Open</td>
+<td>MB, PF tumors (can rerun RSEM/v39)</td>
+<td>1–2 samples per age; early samples are whole hindbrain.</td>
+</tr>
+<tr>
+<td>Griesinger 2024 (Donson lab)</td>
+<td>GSE244124; SRA PRJNA1021260</td>
+<td>Poly-A, 150-bp PE</td>
+<td>16</td>
+<td>Cerebellum 6, pons 3, pituitary 2, frontal 2, parietal 1, temporal 1, cortex 1</td>
+<td>0.2–9 y; all pediatric</td>
+<td>FASTQ open</td>
+<td>Open</td>
+<td><strong>DMG (pons), ACP (pituitary)</strong>, MB</td>
+<td>15/16 are autopsies from children with a brain-tumor history; 1 epilepsy resection.</td>
+</tr>
+<tr>
+<td>Aldinger 2021</td>
+<td>dbGaP phs001908</td>
+<td>TruSeq RNA Access (capture)</td>
+<td>57</td>
+<td>Fetal whole cerebellum 13, RL 9, EGL 17, Purkinje layer 18</td>
+<td>9–21 pcw</td>
+<td>Controlled</td>
+<td>dbGaP</td>
+<td>MB cell of origin</td>
+<td>Fetal; capture library.</td>
+</tr>
+<tr>
+<td>HDBR (2016)</td>
+<td>E-MTAB-4840</td>
+<td>Stranded PE</td>
+<td>632</td>
+<td>Cerebellum 36, spinal cord 42, diencephalon 42, temporal lobe 40, pons 2</td>
+<td>CS13–20 pcw</td>
+<td>FASTQ open</td>
+<td>Open</td>
+<td>Fetal spinal cord, cerebellum</td>
+<td>Fetal only; poly-A vs rRNA unverified.</td>
+</tr>
+<tr>
+<td>Collado-Torres 2019 (BrainSeq 2)</td>
+<td>eqtl.brainseq.org/phase2</td>
+<td>Ribo-Zero total RNA; GENCODE v25</td>
+<td>300 DLPFC + 314 HIP controls</td>
+<td>DLPFC, hippocampus</td>
+<td>14 pcw–96 y; pediatric n unverified</td>
+<td>Raw access unverified</td>
+<td>Processed open</td>
+<td>Check for our rRNA-depleted libraries</td>
+<td>Cortex and hippocampus only.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="comparison-table-mirna">Comparison table: miRNA</h2>
+<p><strong>No HTG EdgeSeq normal brain exists in any public repository.</strong> GEO has 53 HTG EdgeSeq series and none is normal brain tissue. OpenPedCan's 262 HTG samples are all tumors. Everything below is sequencing-based, so compare direction and rank only.</p>
+<table>
+<thead>
+<tr>
+<th>Dataset (first author, year)</th>
+<th>Accession</th>
+<th>Platform</th>
+<th>Normal samples (n)</th>
+<th>Brain regions (n per region)</th>
+<th>Age range / pediatric n</th>
+<th>Raw data?</th>
+<th>Access</th>
+<th>Best for</th>
+<th>Caveats</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GTEx v10 small RNA (2025–26 release)</td>
+<td>gs://adult-gtex/bulk-gex/v10/small-RNA</td>
+<td>Small RNA-seq with UMIs; 1,979 miRNAs</td>
+<td>16,760 samples overall</td>
+<td>Cerebellum 269, cerebellar hemisphere 288, hypothalamus 237, pituitary 314, spinal cord 136, cortex 238, BA9 249, hippocampus 237</td>
+<td>20–79 y; 0 pediatric</td>
+<td>Raw location unverified</td>
+<td>Open</td>
+<td>All six (adult anchor)</td>
+<td>Not HTG; RNAcentral IDs need mapping to miRBase; no paper yet (unverified).</td>
+</tr>
+<tr>
+<td>Li 2018 (PsychENCODE)</td>
+<td>development.psychencode.org (smRNA count xlsx)</td>
+<td>Small RNA-seq; 2,588 mature miRNAs</td>
+<td>278 samples, 22 postnatal brains</td>
+<td>16 regions; CBC 19</td>
+<td>4 mo–40 y; 14 donors under 18 (157 samples); 12 pediatric CBC</td>
+<td>dbGaP lists it; portal says "being uploaded"</td>
+<td>Open</td>
+<td>MB, PF tumors, GG, hemispheric</td>
+<td>No pons, hypothalamus or pituitary.</td>
+</tr>
+<tr>
+<td>BrainSpan miRNA (Allen; Ziats 2014)</td>
+<td>download.alleninstitute.org/brainspan/MicroRNA</td>
+<td>Platform unverified; 1,861 miRNAs</td>
+<td>216 samples, 18 donors</td>
+<td>16 structures</td>
+<td>4 mo–23 y (Allen API; the paper says 4 mo–19 y)</td>
+<td>No</td>
+<td>Open</td>
+<td>Backup to PsychENCODE</td>
+<td>Probably the same donors as PsychENCODE.</td>
+</tr>
+<tr>
+<td>Keller 2022 (miRNATissueAtlas2)</td>
+<td>GSE163534</td>
+<td>Small RNA-seq</td>
+<td>39 brain biopsies, 6 bodies</td>
+<td>Cerebellum 2, pituitary 3, hypothalamus 1, spinal cord 2, temporal lobe 3, medulla 1</td>
+<td>Adult (ages unverified)</td>
+<td>Yes</td>
+<td>Open</td>
+<td>Cross-check only</td>
+<td>Tiny n.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="per-tumor-type">Per tumor type</h2>
+<ul>
+<li><strong>Medulloblastoma.</strong> Methylation: GSE278285 (24 pediatric cerebellum), GSE299377 and PsychENCODE CBC; add GSE209913 for cell of origin. Infant cerebellum looks SHH-like, so don't treat it as clean normal. RNA: E-MTAB-6814 pediatric cerebellum, PsychENCODE CBC and GTEx cerebellum.</li>
+<li><strong>Low-grade glioma.</strong> Cerebellar PA: same as MB. Optic/hypothalamic PA: Capper HYPTHAL plus the GSE215240 hypothalamus sample; the only optic control is Heidelberg CTRL_OPTIC (GHGA). Hemispheric: the cortex sets. RNA: GTEx cerebellum/hypothalamus plus PsychENCODE.</li>
+<li><strong>Ependymoma.</strong> PF: Capper CEBM/PONS, GSE278285, and GSE215240 (4th ventricle, pons). ST: the cortex sets (GSE74193, GSE289191, PsychENCODE). Spinal: only fetal GSE69502. RNA: GTEx cerebellum/spinal cord plus GSE244124.</li>
+<li><strong>Ganglioglioma.</strong> Methylation: PsychENCODE temporal cortex (ITC, STC and A1C: 31 pediatric samples) plus GSE215240 temporal cortex. GSE156374 is the adult comparator published GG papers used. RNA: PsychENCODE temporal cortex and GTEx cortex.</li>
+<li><strong>High-grade glioma.</strong> Hemispheric: GSE74193, GSE289191, GSE239518, PsychENCODE and Capper HEMI/WM. Pons/DMG: Capper PONS (12) plus 2 GSE215240 pons samples; thalamic: PsychENCODE MD. RNA: GSE244124 pons (3), PsychENCODE and GTEx.</li>
+<li><strong>ACP.</strong> Methylation: Capper ADENOPIT (9) + HYPTHAL (9), GSE115783 pituitary (6), and the GSE215240 pituitary + hypothalamus samples (1 each). RNA: GTEx pituitary/hypothalamus plus GSE244124 pituitary (2). No ACP methylation paper used a normal. ACP comes from Rathke's pouch epithelium, so pituitary and hypothalamus give local context, not the cell of origin.</li>
+</ul>
+<h2 id="gaps">Gaps</h2>
+<ul>
+<li>No HTG EdgeSeq normal brain, pediatric or adult.</li>
+<li>No public normal optic nerve methylation. CTRL_OPTIC is only in the Heidelberg set, behind a DTA.</li>
+<li>No postnatal spinal cord methylation on 450K or EPIC; only fetal (GSE69502). Spinal cord RNA and miRNA come only from adults (GTEx).</li>
+<li>Pediatric pons, hypothalamus and pituitary have only 1–3 samples each (GSE215240 EPIC; GSE244124 RNA). There is no pediatric pons, hypothalamus or pituitary miRNA.</li>
+<li>No healthy pediatric multi-region EPIC atlas. PsychENCODE is the closest, but it is 450K and has no pons or hypothalamus.</li>
+<li>Capper control ages are not public.</li>
+<li>Most pediatric normals are autopsy tissue from tumor patients (CBTN, GSE244124) or FFPE surgical tissue (GSE215240, Capper).</li>
+<li>Two datasets I could not get: Saratsis 2014 (7 pediatric brainstem, 450K) was never deposited. Mosella 2021's in-house pituitaries have a placeholder accession. Ask the authors for both.</li>
+</ul>
+<h2 id="practical-notes">Practical notes</h2>
+<ul>
+<li>Mixing 450K and EPIC: keep the shared probes, process everything from IDATs with one pipeline, and include platform and FFPE/frozen as covariates. Do not mix beta files from different pipelines.</li>
+<li>Region matters more than age for most promoters, and both matter in infants. Check neuron/glia proportion (e.g. with sorted references such as Loyfer 2023 or GSE289184) before calling a promoter hyper- or hypomethylated.</li>
+<li>RNA: GTEx v10 and our tumors share GENCODE v39. GTEx gene counts are from RNA-SeQC, not RSEM, so compare at TPM level or requantify.</li>
+</ul>
+<h2 id="also-checked-not-recommended">Also checked, not recommended</h2>
+<ul>
+<li>GSE36278, GSE44684 and GSE77241: small 450K cerebellum/brain sets with no IDATs, likely the same DKFZ donors.</li>
+<li>GSE152561 (Lee 2024): 3 oxBS normals.</li>
+<li>GSE15745: 27K pons, too old.</li>
+<li>GSE53162: 6 control cerebellum, mostly adults.</li>
+<li>GSE131706: subventricular zone controls, 5 aged under 10.</li>
+<li>GSE73747, GSE58885 and GSE157908: fetal cortex only.</li>
+<li>GSE283928 (2025 PitNET): tumors only.</li>
+<li>Xena Toil TCGA-TARGET-GTEx: RSEM on GENCODE v23; a smaller GTEx subset.</li>
+</ul>
+<h2 id="sources">Sources</h2>
+<ul>
+<li>Capper GSE90496: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE90496</li>
+<li>Sill v12.8 (Cancer Cell 2026, doi:10.1016/j.ccell.2025.11.002); preprint medRxiv 10.1101/2025.05.28.25328344; full-text PDF https://pub.dzne.de/record/285055/files/DZNE-2026-00179.pdf ; GHGA https://data.ghga.de/browse?q=GHGAS89861553411214</li>
+<li>Sturm 2023 GSE215240: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE215240 (PMID 36928815)</li>
+<li>Cotter 2025 GSE299377: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE299377 (doi:10.1007/s00401-025-02907-1)</li>
+<li>Anne 2022 GSE278285: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE278285 (doi:10.2217/epi-2022-0184)</li>
+<li>Li 2018 PsychENCODE: http://development.psychencode.org/ ; https://pmc.ncbi.nlm.nih.gov/articles/PMC6413317/ (doi:10.1126/science.aat7615)</li>
+<li>Jaffe 2016 GSE74193: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE74193 (PMID 26619358)</li>
+<li>Franklin 2025 GSE289191 / GSE289184: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE289191 (doi:10.1016/j.xgen.2025.101010)</li>
+<li>Nishitani 2025 GSE239518: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE239518 (doi:10.1038/s41380-025-03236-1)</li>
+<li>Hovestadt 2014 GSE54880; Smith 2022 GSE209913; Kober 2018 GSE115783; Price 2016 GSE69502; Jabari 2022 GSE156374 (all at https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=<ID>)</li>
+<li>Loyfer 2023 GSE186458: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE186458 (doi:10.1038/s41586-022-05580-6)</li>
+<li>OpenPedCan v15 histologies: https://s3.amazonaws.com/d3b-openaccess-us-east-1-prd-pbta/open-targets/v15/histologies.tsv (Geng 2025, PMC12402770)</li>
+<li>GTEx v10: https://gtexportal.org ; https://storage.googleapis.com/adult-gtex/bulk-gex/v10/small-RNA/description.tsv ; reference GTF gencode.v39 in gs://adult-gtex/references/v10/</li>
+<li>Cardoso-Moreira 2019 E-MTAB-6814: https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-6814 (PMC6658352)</li>
+<li>Griesinger 2024 GSE244124: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE244124 (PMID 38334950)</li>
+<li>Aldinger 2021 (PMC8338761), HDBR E-MTAB-4840, BrainSeq Phase 2 (PMID 31174959)</li>
+<li>BrainSpan miRNA: https://download.alleninstitute.org/brainspan/MicroRNA/ ; miRNATissueAtlas2 GSE163534 (PMID 34570238)</li>
+<li>Luo 2022 retraction: PMID 36450980 (retraction note PMID 40634621)</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/wanglab-cns/bidirectional-promoters" class="fa fa-code-fork" style="color: #fcfcfc"> bidirectional-promoters</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

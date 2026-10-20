@@ -64,6 +64,12 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#oncotree">ONCOTREE</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ucsc-cpg-islands-hg38">UCSC CpG islands (hg38)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gencode-v50-gene-annotation-comparison-only">GENCODE v50 gene annotation (comparison only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#normal-brain-references-candidates">Normal brain references (candidates)</a>
+    </li>
     <li class="toctree-l3"><a class="reference internal" href="#adult-datasets-planned-second-phase">Adult datasets (planned, second phase)</a>
     </li>
         </ul>
@@ -78,7 +84,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#3-data-dictionary">3. Data Dictionary</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#curated-clinical-table-draft">Curated clinical table (draft)</a>
+    <li class="toctree-l3"><a class="reference internal" href="#curated-clinical-table-clincsv">Curated clinical table (CLIN.csv)</a>
     </li>
         </ul>
     </li>
@@ -143,13 +149,16 @@ how to cite it. Raw files go in <code>data/rawdata/&lt;source&gt;/</code> and ar
 <h3 id="cbtn-harmonized-data-on-cavatica-latest-release">CBTN harmonized data on CAVATICA (latest release)</h3>
 <ul>
 <li><strong>Name</strong>: CBTN harmonized data and CBTN-Methylation source data (raw EPIC IDAT files)</li>
-<li><strong>Version</strong>: File manifests downloaded 2026-10-06, labelled <code>CBTN_2026</code> in this project. This release has more
-  patients than OpenPedCan v15.</li>
+<li><strong>Version</strong>: Project <code>cavatica/pbta-cbttc</code> ("PBTA-CBTN Open Access"). File manifests first exported 2026-10-06;
+  manifests and files for our cohort downloaded 2026-10-20 by <code>workflow/scripts/00_download_cbtn_2026.py</code>
+  (1,888 files, 8.7 GB: RSEM gene results, consensus somatic MAF, copy-number segments, EPIC IDATs, plus the
+  non-tumor methylation samples). Labelled <code>CBTN_2026</code> in this project. This release has more patients than
+  OpenPedCan v15. Its RNA files use GENCODE v39.</li>
 <li><strong>URL</strong>: https://cavatica.sbgenomics.com</li>
 <li><strong>Access Method</strong>: CAVATICA account and acceptance of the CBTN data access terms; file manifests exported from the
   CAVATICA projects</li>
-<li><strong>Access Date</strong>: 2026-10-06</li>
-<li><strong>Data Format</strong>: TSV manifests; IDAT (methylation)</li>
+<li><strong>Access Date</strong>: 2026-10-06 (manifests), 2026-10-20 (files)</li>
+<li><strong>Data Format</strong>: TSV manifests; RSEM results; MAF; SEG; IDAT (methylation)</li>
 <li><strong>Citation</strong>: Chen F, ... Creighton CJ. The DNA methylome of pediatric brain tumors appears shaped by structural
   variation and predicts survival. <em>Nature Communications</em> (2024).
   <a href="https://doi.org/10.1038/s41467-024-51276-y">doi:10.1038/s41467-024-51276-y</a></li>
@@ -180,12 +189,27 @@ how to cite it. Raw files go in <code>data/rawdata/&lt;source&gt;/</code> and ar
 <h3 id="oncotree">ONCOTREE</h3>
 <ul>
 <li><strong>Name</strong>: OncoTree cancer type classification, used to name tumor types and subtypes (levels 1 to 3)</li>
-<li><strong>Version</strong>: <code>oncotree_latest_stable</code>. The exact version is recorded in <code>metadata/</code> when the mapping is built.</li>
-<li><strong>URL</strong>: https://oncotree.mskcc.org (API: https://oncotree.mskcc.org/api/)</li>
-<li><strong>Access Method</strong>: API</li>
+<li><strong>Version</strong>: <code>oncotree_2025_10_03</code> (the latest stable version on 2026-10-20)</li>
+<li><strong>URL</strong>: https://oncotree.mskcc.org (API: https://oncotree.mskcc.org/api/tumorTypes?version=oncotree_2025_10_03)</li>
+<li><strong>Access Method</strong>: API, saved as <code>data/rawdata/oncotree_2025_10_03/tumor_types.json</code></li>
+<li><strong>Access Date</strong>: 2026-10-20</li>
 <li><strong>Citation</strong>: Kundra R, ... Schultz N. OncoTree: A Cancer Classification System for Precision Oncology.
   <em>JCO Clinical Cancer Informatics</em> (2021). <a href="https://doi.org/10.1200/CCI.20.00108">doi:10.1200/CCI.20.00108</a></li>
 </ul>
+<h3 id="ucsc-cpg-islands-hg38">UCSC CpG islands (hg38)</h3>
+<ul>
+<li><strong>Name</strong>: UCSC <code>cpgIslandExt</code> track, GRCh38, used to mark pairs whose shared promoter overlaps a CpG island</li>
+<li><strong>URL</strong>: https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/cpgIslandExt.txt.gz (last modified 2022-10-19)</li>
+<li><strong>Access Date</strong>: 2026-10-20, saved in <code>data/rawdata/ucsc_hg38_cpg/</code></li>
+</ul>
+<h3 id="gencode-v50-gene-annotation-comparison-only">GENCODE v50 gene annotation (comparison only)</h3>
+<ul>
+<li><strong>Name</strong>: GENCODE release 50, used only to count the pairs gained and lost against v39</li>
+<li><strong>URL</strong>: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_50/gencode.v50.annotation.gtf.gz</li>
+<li><strong>Access Date</strong>: 2026-10-20 (MD5 checked), saved in <code>data/rawdata/gencode_v50/</code></li>
+</ul>
+<h3 id="normal-brain-references-candidates">Normal brain references (candidates)</h3>
+<p>Reviewed on 2026-10-20; none downloaded yet. See <a href="../normal_reference/">normal_reference.md</a>.</p>
 <h3 id="adult-datasets-planned-second-phase">Adult datasets (planned, second phase)</h3>
 <p>Only clinical and annotation files have been downloaded so far (2026-10-09); no omics data yet.</p>
 <table>
@@ -242,8 +266,9 @@ how to cite it. Raw files go in <code>data/rawdata/&lt;source&gt;/</code> and ar
 <li><strong>Name</strong>: Genome-wide list of bidirectional gene pairs</li>
 <li><strong>Creation Method</strong>: Head-to-head gene pairs on opposite strands, with transcription start sites within a set
   distance, built from the GENCODE v39 GTF</li>
-<li><strong>Input Data</strong>: GENCODE v39</li>
-<li><strong>Processing Scripts</strong>: <code>workflow/scripts/</code> (to be added)</li>
+<li><strong>Input Data</strong>: GENCODE v39, UCSC CpG islands</li>
+<li><strong>Processing Scripts</strong>: <code>workflow/scripts/01_bidirectional_pairs.py</code> (run with <code>--canonical-only</code>)</li>
+<li><strong>Output</strong>: <code>data/results/pairs_GENCODE_v39/</code> (not on GitHub)</li>
 </ul>
 <h3 id="curated-clinical-data">Curated clinical data</h3>
 <ul>
@@ -251,14 +276,18 @@ how to cite it. Raw files go in <code>data/rawdata/&lt;source&gt;/</code> and ar
 <li><strong>Creation Method</strong>: Clinical curation following the
   <a href="https://github.com/BHKLAB-DataProcessing/ICB_Common">ICB_Common</a> standard, using
   <a href="https://github.com/BHKLAB-DataProcessing/ICB_Van_Allen-snakemake">ICB_Van_Allen</a> as the worked example</li>
-<li><strong>Input Data</strong>: CBTN / OpenPedCan v15, CBTN on CAVATICA, PedcBioPortal</li>
-<li><strong>Processing Scripts</strong>: <code>workflow/scripts/</code> (to be added)</li>
+<li><strong>Input Data</strong>: OpenPedCan v15 <code>histologies.tsv</code> (survival, age, sex, subtype); newest CBTN manifests (check of sex);
+  NB01 outputs (cohort, data types per patient); ONCOTREE</li>
+<li><strong>Processing</strong>: <code>workflow/notebooks/02_clinical.ipynb</code>, using the lab functions in <code>workflow/scripts/R/icb_common/</code></li>
+<li><strong>Output</strong>: <code>data/procdata/02_clinical/CLIN.csv</code> (not on GitHub); <code>metadata/curation_tissue.csv</code></li>
 </ul>
 <hr />
 <h2 id="3-data-dictionary">3. Data Dictionary</h2>
-<h3 id="curated-clinical-table-draft">Curated clinical table (draft)</h3>
-<p>Key variables come first, in this order. Every original column is kept after them, unchanged. Missing values
-stay <code>NA</code>, and nothing is imputed or removed.</p>
+<h3 id="curated-clinical-table-clincsv">Curated clinical table (<code>CLIN.csv</code>)</h3>
+<p>One row per patient, <code>;</code>-separated, written as in the lab code. The lab's key columns come first, in the lab's order,
+then our extra columns, then every original v15 column of the patient's first miRNA tumor. Missing values stay <code>NA</code>;
+nothing is imputed. A <code>;</code> inside a value is written as <code>|</code> so the file stays readable. Rules: <code>devnotes.md</code>
+(clinical curation rules, 13 Oct).</p>
 <table>
 <thead>
 <tr>
@@ -280,23 +309,23 @@ stay <code>NA</code>, and nothing is imputed or removed.</p>
 <tr>
 <td>sex</td>
 <td>string</td>
-<td>Reported sex</td>
+<td>Reported sex (v15 <code>reported_gender</code>)</td>
 <td>N/A</td>
-<td>F, M, NA</td>
+<td>F, M</td>
 </tr>
 <tr>
 <td>age</td>
 <td>numeric</td>
-<td>Age at diagnosis</td>
+<td>Age at diagnosis (earliest over the patient's miRNA samples)</td>
 <td>years</td>
-<td>≥ 0</td>
+<td>0 to 31</td>
 </tr>
 <tr>
 <td>primary</td>
 <td>string</td>
-<td>Tumor type (ONCOTREE name)</td>
+<td>Tumor type of the first miRNA tumor, as its ONCOTREE name</td>
 <td>N/A</td>
-<td>e.g. Medulloblastoma</td>
+<td>e.g. Medulloblastoma, Low-Grade Glioma, NOS</td>
 </tr>
 <tr>
 <td>histo</td>
@@ -308,9 +337,16 @@ stay <code>NA</code>, and nothing is imputed or removed.</p>
 <tr>
 <td>tissueid</td>
 <td>string</td>
-<td>Tissue (ONCOTREE level 1)</td>
+<td>Tissue (ONCOTREE), from <code>metadata/curation_tissue.csv</code></td>
 <td>N/A</td>
 <td>CNS/Brain</td>
+</tr>
+<tr>
+<td>treatmentid</td>
+<td>string</td>
+<td>Treatment</td>
+<td>N/A</td>
+<td>empty (no drug data)</td>
 </tr>
 <tr>
 <td>stage</td>
@@ -327,11 +363,11 @@ stay <code>NA</code>, and nothing is imputed or removed.</p>
 <td>NA (no response data)</td>
 </tr>
 <tr>
-<td>drug_type, treatmentid</td>
+<td>drug_type</td>
 <td>string</td>
-<td>Treatment</td>
+<td>Treatment type</td>
 <td>N/A</td>
-<td>NA (no drug data)</td>
+<td>NA</td>
 </tr>
 <tr>
 <td>dna</td>
@@ -343,21 +379,21 @@ stay <code>NA</code>, and nothing is imputed or removed.</p>
 <tr>
 <td>rna</td>
 <td>string</td>
-<td>RNA data type</td>
+<td>RNA data type (as in the lab's 2026 ICB repos)</td>
 <td>N/A</td>
-<td>e.g. tpm, NA</td>
+<td>rnaseq, NA</td>
 </tr>
 <tr>
 <td>t.pfs, pfs</td>
 <td>numeric</td>
 <td>Progression-free survival</td>
 <td>months; 0/1</td>
-<td>NA (event-free survival kept in the original columns for now)</td>
+<td>NA (CBTN reports event-free survival, kept in the original columns <code>EFS_days</code>, <code>EFS_event_type</code>)</td>
 </tr>
 <tr>
 <td>t.os</td>
 <td>numeric</td>
-<td>Overall survival time</td>
+<td>Overall survival time (<code>OS_days</code> / 30.5)</td>
 <td>months</td>
 <td>≥ 0</td>
 </tr>
@@ -366,7 +402,7 @@ stay <code>NA</code>, and nothing is imputed or removed.</p>
 <td>integer</td>
 <td>Overall survival event</td>
 <td>N/A</td>
-<td>1 = death, 0 = alive</td>
+<td>1 = deceased, 0 = living</td>
 </tr>
 <tr>
 <td>survival_unit</td>
@@ -381,6 +417,69 @@ stay <code>NA</code>, and nothing is imputed or removed.</p>
 <td>Survival endpoints available</td>
 <td>N/A</td>
 <td>OS</td>
+</tr>
+<tr>
+<td>tumor_type</td>
+<td>string</td>
+<td>CBTN tumor type(s) of the patient's miRNA samples (<code>cancer_group</code>)</td>
+<td>N/A</td>
+<td>the six types; one patient has two, joined with <code>\|</code></td>
+</tr>
+<tr>
+<td>rna_info, dna_info</td>
+<td>string</td>
+<td>What the RNA and DNA data are</td>
+<td>N/A</td>
+<td>RSEM TPM and expected counts; consensus somatic MAF, CNVkit segments; NA</td>
+</tr>
+<tr>
+<td>methyl, methyl_info</td>
+<td>string</td>
+<td>Methylation data type and processing</td>
+<td>N/A</td>
+<td>epic; processing NA until decided</td>
+</tr>
+<tr>
+<td>mirna, mirna_info</td>
+<td>string</td>
+<td>miRNA data type and processing</td>
+<td>N/A</td>
+<td>htg; raw counts</td>
+</tr>
+<tr>
+<td>race, ethnicity</td>
+<td>string</td>
+<td>As reported in v15 ("Reported Unknown", "Not Available" kept as written)</td>
+<td>N/A</td>
+<td></td>
+</tr>
+<tr>
+<td>oncotree_code, oncotree_name</td>
+<td>string</td>
+<td>Most specific ONCOTREE type (MB group or myxopapillary ependymoma when the subtype names one)</td>
+<td>N/A</td>
+<td>e.g. MBLG4, LGGNOS</td>
+</tr>
+<tr>
+<td>sex_newest_release</td>
+<td>string</td>
+<td>Sex in the newest CBTN release, as a check</td>
+<td>N/A</td>
+<td>F, M, NA</td>
+</tr>
+<tr>
+<td>n_mirna_samples</td>
+<td>integer</td>
+<td>miRNA samples of the patient in the six types</td>
+<td>N/A</td>
+<td>1 to 3</td>
+</tr>
+<tr>
+<td>(original columns)</td>
+<td></td>
+<td>Every v15 <code>histologies.tsv</code> column of the patient's first miRNA tumor, except those turned into key columns</td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
