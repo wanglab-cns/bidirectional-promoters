@@ -1,0 +1,7 @@
+"study","cancer_type","tissueid","oncotree_code","cbtn_cancer_group"
+"CBTN_miRNA","Low-Grade Glioma, NOS","CNS/Brain","LGGNOS","Low-grade glioma"
+"CBTN_miRNA","Ependymoma","CNS/Brain","EPM","Ependymoma"
+"CBTN_miRNA","Medulloblastoma","CNS/Brain","MBL","Medulloblastoma"
+"CBTN_miRNA","Ganglioglioma","CNS/Brain","GNG","Ganglioglioma"
+"CBTN_miRNA","High-Grade Glioma, NOS","CNS/Brain","HGGNOS","High-grade glioma"
+"CBTN_miRNA","Craniopharyngioma, Adamantinomatous Type","CNS/Brain","ACPG","Adamantinomatous Craniopharyngioma"
