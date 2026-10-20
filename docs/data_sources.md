@@ -167,7 +167,8 @@ nothing is imputed. A `;` inside a value is written as ` | ` so the file stays r
 | tumor_type | string | CBTN tumor type(s) of the patient's miRNA samples (`cancer_group`) | N/A | the six types; one patient has two, joined with ` \| ` |
 | rna_info, dna_info | string | What the RNA and DNA data are | N/A | RSEM TPM and expected counts; consensus somatic MAF, CNVkit segments; NA |
 | methyl, methyl_info | string | Methylation data type and processing | N/A | epic; processing NA until decided |
-| mirna, mirna_info | string | miRNA data type and processing | N/A | htg; raw counts |
+| mirna, mirna_info | string | miRNA data type and its normalization | N/A | htg; NA (HTG raw counts are not normalized, so the label stays NA, per Farnoosh) |
+| age_at_chemo_start, age_at_radiation_start | integer | Age when chemotherapy / radiation started (follow-up timing, Farnoosh 13 Oct); blank can mean none or not recorded | days | |
 | race, ethnicity | string | As reported in v15 ("Reported Unknown", "Not Available" kept as written) | N/A | |
 | oncotree_code, oncotree_name, oncotree_level, oncotree_level1 ... oncotree_level5 | string | Most detailed ONCOTREE code the data supports (Farnoosh's rule), from the rules in `metadata/oncotree_mapping.csv`, with its name, level, and the name at each level (1 = tissue, 2 = family, 3 = type, 4-5 = subtypes; NA below the code's level). A patient whose samples map to different codes keeps all, joined with ` / ` | N/A | e.g. MBLG4, Medulloblastoma, Group 4, 5 |
 | sex_newest_release | string | Sex in the newest CBTN release, as a check | N/A | F, M, NA |
