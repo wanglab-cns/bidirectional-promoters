@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Amirfaham Fallahpour" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Data Sources - Bidirectional Promoters in Pediatric Brain Tumors</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Sources";
+        var mkdocs_page_input_path = "data_sources.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Bidirectional Promoters in Pediatric Brain Tumors
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Data Sources</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-external-data-sources">1. External Data Sources</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#cbtn-openpedcan-v15-open-access">CBTN / OpenPedCan v15 (open access)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#cbtn-harmonized-data-on-cavatica-latest-release">CBTN harmonized data on CAVATICA (latest release)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pedcbioportal-pbta-provisional">PedcBioPortal: PBTA (Provisional)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gencode-v39-gene-annotation">GENCODE v39 gene annotation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#oncotree">ONCOTREE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adult-datasets-planned-second-phase">Adult datasets (planned, second phase)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-internalgenerated-data">2. Internal/Generated Data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bidirectional-gene-pairs-gencode-v39">Bidirectional gene pairs (GENCODE v39)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#curated-clinical-data">Curated clinical data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-data-dictionary">3. Data Dictionary</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#curated-clinical-table-draft">Curated clinical table (draft)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best Practices</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../devnotes/">Developer Notes</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Bidirectional Promoters in Pediatric Brain Tumors</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Data Sources</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/wanglab-cns/bidirectional-promoters/edit/master/docs/data_sources.md">Edit on bidirectional-promoters</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data-sources">Data Sources</h1>
+<h2 id="overview">Overview</h2>
+<p>This page lists every dataset used in the project: where it came from, which version, when it was downloaded, and
+how to cite it. Raw files go in <code>data/rawdata/&lt;source&gt;/</code> and are never edited. Nothing in <code>data/</code> is pushed to GitHub.</p>
+<hr />
+<h2 id="1-external-data-sources">1. External Data Sources</h2>
+<h3 id="cbtn-openpedcan-v15-open-access">CBTN / OpenPedCan v15 (open access)</h3>
+<ul>
+<li><strong>Name</strong>: Open Pediatric Cancer (OpenPedCan) project, release v15, which includes the Children's Brain Tumor
+  Network (CBTN) / Pediatric Brain Tumor Atlas (PBTA) cohort</li>
+<li><strong>Version</strong>: v15 (release date 2024-03-01)</li>
+<li><strong>URL</strong>: https://s3.amazonaws.com/d3b-openaccess-us-east-1-prd-pbta/open-targets/v15/</li>
+<li><strong>Access Method</strong>: Direct download over HTTPS, checked against the release <code>md5sum.txt</code> and <code>methyl-md5sum.txt</code></li>
+<li><strong>Access Date</strong>: 2026-10-06</li>
+<li><strong>Data Format</strong>: TSV (<code>histologies.tsv</code>, independent-specimen lists, gene ID map, EPIC probe annotation),
+  RDS (<code>mirna-expression-counts.rds</code>, expression matrices)</li>
+<li><strong>Citation</strong>:<ul>
+<li>Geng Z, ... Rokita JL. The Open Pediatric Cancer Project. <em>GigaScience</em> (2025).
+  <a href="https://doi.org/10.1093/gigascience/giaf093">doi:10.1093/gigascience/giaf093</a></li>
+<li>Shapiro JA, ... OpenPBTA: The Open Pediatric Brain Tumor Atlas. <em>Cell Genomics</em> (2023).
+  <a href="https://doi.org/10.1016/j.xgen.2023.100340">doi:10.1016/j.xgen.2023.100340</a></li>
+</ul>
+</li>
+<li><strong>License</strong>: See the OpenPedCan data release terms</li>
+</ul>
+<h3 id="cbtn-harmonized-data-on-cavatica-latest-release">CBTN harmonized data on CAVATICA (latest release)</h3>
+<ul>
+<li><strong>Name</strong>: CBTN harmonized data and CBTN-Methylation source data (raw EPIC IDAT files)</li>
+<li><strong>Version</strong>: File manifests downloaded 2026-10-06, labelled <code>CBTN_2026</code> in this project. This release has more
+  patients than OpenPedCan v15.</li>
+<li><strong>URL</strong>: https://cavatica.sbgenomics.com</li>
+<li><strong>Access Method</strong>: CAVATICA account and acceptance of the CBTN data access terms; file manifests exported from the
+  CAVATICA projects</li>
+<li><strong>Access Date</strong>: 2026-10-06</li>
+<li><strong>Data Format</strong>: TSV manifests; IDAT (methylation)</li>
+<li><strong>Citation</strong>: Chen F, ... Creighton CJ. The DNA methylome of pediatric brain tumors appears shaped by structural
+  variation and predicts survival. <em>Nature Communications</em> (2024).
+  <a href="https://doi.org/10.1038/s41467-024-51276-y">doi:10.1038/s41467-024-51276-y</a></li>
+<li><strong>License</strong>: CBTN data access terms. Patient-level data must not be shared outside the approved users.</li>
+</ul>
+<h3 id="pedcbioportal-pbta-provisional">PedcBioPortal: PBTA (Provisional)</h3>
+<ul>
+<li><strong>Name</strong>: Pediatric Brain Tumor Atlas, all samples (<code>pbta_all</code>)</li>
+<li><strong>Version</strong>: Portal exports downloaded 2026-10-06</li>
+<li><strong>URL</strong>: https://pedcbioportal.kidsfirstdrc.org</li>
+<li><strong>Access Method</strong>: Sample and clinical tables exported from the portal</li>
+<li><strong>Access Date</strong>: 2026-10-06</li>
+<li><strong>Data Format</strong>: TSV</li>
+<li><strong>Citation</strong>: as for CBTN / OpenPedCan above</li>
+</ul>
+<h3 id="gencode-v39-gene-annotation">GENCODE v39 gene annotation</h3>
+<ul>
+<li><strong>Name</strong>: GENCODE human gene annotation, release 39 (GRCh38). CBTN data is built on this release, so we use it
+  for the bidirectional pair list.</li>
+<li><strong>Version</strong>: Release 39</li>
+<li><strong>URL</strong>: https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/gencode.v39.annotation.gtf.gz</li>
+<li><strong>Access Method</strong>: Direct download, checked against the release <code>MD5SUMS</code></li>
+<li><strong>Access Date</strong>: 2026-10-06</li>
+<li><strong>Data Format</strong>: GTF</li>
+<li><strong>Citation</strong>: Frankish A, ... Flicek P. GENCODE 2021. <em>Nucleic Acids Research</em> (2021).
+  <a href="https://doi.org/10.1093/nar/gkaa1087">doi:10.1093/nar/gkaa1087</a></li>
+</ul>
+<h3 id="oncotree">ONCOTREE</h3>
+<ul>
+<li><strong>Name</strong>: OncoTree cancer type classification, used to name tumor types and subtypes (levels 1 to 3)</li>
+<li><strong>Version</strong>: <code>oncotree_latest_stable</code>. The exact version is recorded in <code>metadata/</code> when the mapping is built.</li>
+<li><strong>URL</strong>: https://oncotree.mskcc.org (API: https://oncotree.mskcc.org/api/)</li>
+<li><strong>Access Method</strong>: API</li>
+<li><strong>Citation</strong>: Kundra R, ... Schultz N. OncoTree: A Cancer Classification System for Precision Oncology.
+  <em>JCO Clinical Cancer Informatics</em> (2021). <a href="https://doi.org/10.1200/CCI.20.00108">doi:10.1200/CCI.20.00108</a></li>
+</ul>
+<h3 id="adult-datasets-planned-second-phase">Adult datasets (planned, second phase)</h3>
+<p>Only clinical and annotation files have been downloaded so far (2026-10-09); no omics data yet.</p>
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>What we use it for</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TCGA-LGG, TCGA-GBM</td>
+<td>Adult glioma: RNA-seq, miRNA-seq, methylation</td>
+<td><a href="https://portal.gdc.cancer.gov">GDC</a>, Data Release 46.0</td>
+</tr>
+<tr>
+<td>CPTAC-3 GBM</td>
+<td>Adult glioblastoma with EPIC methylation</td>
+<td><a href="https://portal.gdc.cancer.gov">GDC</a>, Data Release 46.0</td>
+</tr>
+<tr>
+<td>TCGA Pan-Cancer Clinical Data Resource</td>
+<td>Curated TCGA survival</td>
+<td>Liu J et al., <em>Cell</em> (2018), <a href="https://doi.org/10.1016/j.cell.2018.02.052">doi:10.1016/j.cell.2018.02.052</a></td>
+</tr>
+<tr>
+<td>Capper 2018 (GSE90496, GSE109379)</td>
+<td>Methylation of all six types, with age</td>
+<td>Capper D et al., <em>Nature</em> (2018), <a href="https://doi.org/10.1038/nature26000">doi:10.1038/nature26000</a></td>
+</tr>
+<tr>
+<td>Cavalli 2017 (GSE85218)</td>
+<td>Medulloblastoma expression and methylation, including adults</td>
+<td>Cavalli FMG et al., <em>Cancer Cell</em> (2017), <a href="https://doi.org/10.1016/j.ccell.2017.05.005">doi:10.1016/j.ccell.2017.05.005</a></td>
+</tr>
+<tr>
+<td>GSE243240, GSE64415</td>
+<td>Ependymoma</td>
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a></td>
+</tr>
+<tr>
+<td>GSE239695, GSE294056</td>
+<td>Adamantinomatous craniopharyngioma</td>
+<td><a href="https://www.ncbi.nlm.nih.gov/geo/">GEO</a></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-internalgenerated-data">2. Internal/Generated Data</h2>
+<p>Each entry is added here when the file is first made.</p>
+<h3 id="bidirectional-gene-pairs-gencode-v39">Bidirectional gene pairs (GENCODE v39)</h3>
+<ul>
+<li><strong>Name</strong>: Genome-wide list of bidirectional gene pairs</li>
+<li><strong>Creation Method</strong>: Head-to-head gene pairs on opposite strands, with transcription start sites within a set
+  distance, built from the GENCODE v39 GTF</li>
+<li><strong>Input Data</strong>: GENCODE v39</li>
+<li><strong>Processing Scripts</strong>: <code>workflow/scripts/</code> (to be added)</li>
+</ul>
+<h3 id="curated-clinical-data">Curated clinical data</h3>
+<ul>
+<li><strong>Name</strong>: Curated clinical table for CBTN patients with microRNA data</li>
+<li><strong>Creation Method</strong>: Clinical curation following the
+  <a href="https://github.com/BHKLAB-DataProcessing/ICB_Common">ICB_Common</a> standard, using
+  <a href="https://github.com/BHKLAB-DataProcessing/ICB_Van_Allen-snakemake">ICB_Van_Allen</a> as the worked example</li>
+<li><strong>Input Data</strong>: CBTN / OpenPedCan v15, CBTN on CAVATICA, PedcBioPortal</li>
+<li><strong>Processing Scripts</strong>: <code>workflow/scripts/</code> (to be added)</li>
+</ul>
+<hr />
+<h2 id="3-data-dictionary">3. Data Dictionary</h2>
+<h3 id="curated-clinical-table-draft">Curated clinical table (draft)</h3>
+<p>Key variables come first, in this order. Every original column is kept after them, unchanged. Missing values
+stay <code>NA</code>, and nothing is imputed or removed.</p>
+<table>
+<thead>
+<tr>
+<th>Column Name</th>
+<th>Data Type</th>
+<th>Description</th>
+<th>Units</th>
+<th>Possible Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>patient</td>
+<td>string</td>
+<td>CBTN participant ID</td>
+<td>N/A</td>
+<td><code>PT_XXXXXXXX</code></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>string</td>
+<td>Reported sex</td>
+<td>N/A</td>
+<td>F, M, NA</td>
+</tr>
+<tr>
+<td>age</td>
+<td>numeric</td>
+<td>Age at diagnosis</td>
+<td>years</td>
+<td>≥ 0</td>
+</tr>
+<tr>
+<td>primary</td>
+<td>string</td>
+<td>Tumor type (ONCOTREE name)</td>
+<td>N/A</td>
+<td>e.g. Medulloblastoma</td>
+</tr>
+<tr>
+<td>histo</td>
+<td>string</td>
+<td>Histology</td>
+<td>N/A</td>
+<td>NA (not available)</td>
+</tr>
+<tr>
+<td>tissueid</td>
+<td>string</td>
+<td>Tissue (ONCOTREE level 1)</td>
+<td>N/A</td>
+<td>CNS/Brain</td>
+</tr>
+<tr>
+<td>stage</td>
+<td>string</td>
+<td>Stage</td>
+<td>N/A</td>
+<td>NA (not used for these tumors)</td>
+</tr>
+<tr>
+<td>response.other.info, recist, response</td>
+<td>string</td>
+<td>Treatment response</td>
+<td>N/A</td>
+<td>NA (no response data)</td>
+</tr>
+<tr>
+<td>drug_type, treatmentid</td>
+<td>string</td>
+<td>Treatment</td>
+<td>N/A</td>
+<td>NA (no drug data)</td>
+</tr>
+<tr>
+<td>dna</td>
+<td>string</td>
+<td>DNA data type</td>
+<td>N/A</td>
+<td>wgs, NA</td>
+</tr>
+<tr>
+<td>rna</td>
+<td>string</td>
+<td>RNA data type</td>
+<td>N/A</td>
+<td>e.g. tpm, NA</td>
+</tr>
+<tr>
+<td>t.pfs, pfs</td>
+<td>numeric</td>
+<td>Progression-free survival</td>
+<td>months; 0/1</td>
+<td>NA (event-free survival kept in the original columns for now)</td>
+</tr>
+<tr>
+<td>t.os</td>
+<td>numeric</td>
+<td>Overall survival time</td>
+<td>months</td>
+<td>≥ 0</td>
+</tr>
+<tr>
+<td>os</td>
+<td>integer</td>
+<td>Overall survival event</td>
+<td>N/A</td>
+<td>1 = death, 0 = alive</td>
+</tr>
+<tr>
+<td>survival_unit</td>
+<td>string</td>
+<td>Unit of survival time</td>
+<td>N/A</td>
+<td>month</td>
+</tr>
+<tr>
+<td>survival_type</td>
+<td>string</td>
+<td>Survival endpoints available</td>
+<td>N/A</td>
+<td>OS</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="best-practices">Best Practices</h2>
+<ul>
+<li>Store raw data in <code>data/rawdata/</code> and never modify it</li>
+<li>Store processed data in <code>data/procdata/</code>; all code used to generate it goes in <code>workflow/scripts/</code></li>
+<li>Document all processing steps</li>
+<li>Track data provenance (where data came from and how it was modified)</li>
+<li>Respect data usage agreements and licenses. CBTN patient-level data must never be pushed to GitHub.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../usage/" class="btn btn-neutral float-left" title="Usage"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../devnotes/" class="btn btn-neutral float-right" title="Developer Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/wanglab-cns/bidirectional-promoters" class="fa fa-code-fork" style="color: #fcfcfc"> bidirectional-promoters</a>
+        </span>
+    
+    
+      <span><a href="../usage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../devnotes/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
