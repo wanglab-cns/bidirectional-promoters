@@ -2,7 +2,7 @@
 
 **Authors:** [Amirfaham Fallahpour](https://github.com/Amirfaham1), [Farnoosh Abbas Aghababazadeh](https://github.com/RibaA), Kevin Wang
 
-**Contact:** [bhklab.amirfahamfallahpour@gmail.com](mailto:bhklab.amirfahamfallahpour@gmail.com)
+**Contact:** [bhklab.amirfahamfallahpour@gmail.com](mailto:bhklab.amirfahamfallahpour@gmail.com), [amirfaham.fallahpour@uhn.ca](mailto:amirfaham.fallahpour@uhn.ca)
 
 **Description:** A pan-brain screen of bidirectional promoters in pediatric brain tumors: which shared promoters are altered (methylation, copy number, mutation) and how each change affects both partner genes, including microRNAs.
 
