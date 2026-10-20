@@ -167,7 +167,7 @@ nothing is imputed. A `;` inside a value is written as ` | ` so the file stays r
 | methyl, methyl_info | string | Methylation data type and processing | N/A | epic; processing NA until decided |
 | mirna, mirna_info | string | miRNA data type and processing | N/A | htg; raw counts |
 | race, ethnicity | string | As reported in v15 ("Reported Unknown", "Not Available" kept as written) | N/A | |
-| oncotree_code, oncotree_name | string | Most specific ONCOTREE type (MB group or myxopapillary ependymoma when the subtype names one) | N/A | e.g. MBLG4, LGGNOS |
+| oncotree_code, oncotree_level1, oncotree_level2, oncotree_level3 | string | ONCOTREE level-3 code (MPE for myxopapillary ependymoma, else the type code) and the names at levels 1 (tissue), 2 (family) and 3 (type), as Farnoosh asked on 13 Oct | N/A | e.g. MBL; CNS/Brain; Embryonal Tumor; Medulloblastoma |
 | sex_newest_release | string | Sex in the newest CBTN release, as a check | N/A | F, M, NA |
 | n_mirna_samples | integer | miRNA samples of the patient in the six types | N/A | 1 to 3 |
 | (original columns) | | Every v15 `histologies.tsv` column of the patient's first miRNA tumor, except those turned into key columns | | |
