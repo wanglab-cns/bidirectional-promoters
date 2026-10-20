@@ -139,7 +139,8 @@ Each entry is added here when the file is first made.
 ### Curated clinical table (`CLIN.csv`)
 
 One row per patient, `;`-separated, written as in the lab code. The lab's key columns come first, in the lab's order,
-then our extra columns, then every original v15 column of the patient's first miRNA tumor. Missing values stay `NA`;
+then the columns we use (Farnoosh: what we care about on the left), then every other original v15 column of the
+patient's first miRNA tumor. Missing values stay `NA`;
 nothing is imputed. A `;` inside a value is written as ` | ` so the file stays readable. Rules: `devnotes.md`
 (clinical curation rules, 13 Oct).
 
@@ -162,6 +163,7 @@ nothing is imputed. A `;` inside a value is written as ` | ` so the file stays r
 | os | integer | Overall survival event | N/A | 1 = deceased, 0 = living |
 | survival_unit | string | Unit of survival time | N/A | month |
 | survival_type | string | Survival endpoints available | N/A | OS |
+| core_mirna, same_sample_status | logical, string | Whether WGS, RNA-seq, methylation and miRNA come from the same tumor sample (NB01) | N/A | TRUE/FALSE; 4 statuses |
 | tumor_type | string | CBTN tumor type(s) of the patient's miRNA samples (`cancer_group`) | N/A | the six types; one patient has two, joined with ` \| ` |
 | rna_info, dna_info | string | What the RNA and DNA data are | N/A | RSEM TPM and expected counts; consensus somatic MAF, CNVkit segments; NA |
 | methyl, methyl_info | string | Methylation data type and processing | N/A | epic; processing NA until decided |

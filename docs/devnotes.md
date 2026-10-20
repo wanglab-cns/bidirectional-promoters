@@ -80,6 +80,7 @@ are part of the question.
 using [ICB_Van_Allen](https://github.com/BHKLAB-DataProcessing/ICB_Van_Allen-snakemake) as the example:
 
 - Never delete columns. Key variables go first in the standard order, and every original column follows, unchanged.
+- [2026-10-20] Column order (Farnoosh): the columns we care about go first on the left, then the rest. In `CLIN.csv` that is the lab's key columns, then the columns we use (tumor type, subtype, ONCOTREE, same-sample flag, data types, demographics, location, resection, EFS), then every other original column. NB01's tables follow the same rule.
 - No imputation. Missing values stay `NA`. Variables we don't have (drug, response, PFS, stage, histology) are `NA`.
 - Survival time is in months; the event is 1 = death, 0 = alive. Overall survival only for now. Event-free
   survival waits until its event definition is clear, but its original columns are kept.
