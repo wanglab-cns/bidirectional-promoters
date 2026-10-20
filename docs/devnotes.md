@@ -88,6 +88,18 @@ using [ICB_Van_Allen](https://github.com/BHKLAB-DataProcessing/ICB_Van_Allen-sna
 - Tumor type and subtype names follow ONCOTREE. All six main tumor types sit at ONCOTREE level 3.
 - Each data release is versioned in its name, for example `CBTN_2026`.
 
+## Analysis cohort
+
+[2026-10-20] The main set for analyses that combine data types is the 186 patients with WGS, RNA-seq, methylation and
+miRNA from the same tumor sample (`core_mirna` in NB01). All 203 miRNA patients stay in the curated tables, so analyses
+that need fewer data types (for example survival) can use the other 17. Those 17 hold 7 of the 36 deaths.
+
+## Repository template, kept in full
+
+[2026-10-20] Farnoosh said on 13 Oct that the full BHK template is more than this project needs (data, docs and workflow
+folders are enough). We keep the full template by choice; it has those folders, and it is the one she used for
+PredictIO-UV-Dist.
+
 ## No data on GitHub
 
 [2026-10-13] This repository is public and holds code and documentation only. Publicly shareable processed data
